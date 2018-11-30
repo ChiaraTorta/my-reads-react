@@ -25,12 +25,22 @@ body, .app {
 }
 
 .list-books-content {
-  padding: 0 0 80px;
+  padding: 0 0 100px;
   flex: 1;
+}
+
+.list-books-content li {
+  display: flex;
+  flex-direction: row;
 }
 
 .bookshelf {
   padding: 0 10px 20px;
+}
+
+.book {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 @media (min-width: 600px) {
