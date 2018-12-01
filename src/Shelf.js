@@ -20,11 +20,12 @@ const shelves = [
 
 export default class Shelf extends Component {
     static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        onChangeShelf: PropTypes.func.isRequired
     };
 
     render() {
-        const {books} = this.props;
+        const {books, onChangeShelf} = this.props;
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -40,12 +41,20 @@ export default class Shelf extends Component {
                                 <div className="bookshelf-books">
                                     <ol className="books-grid">
                                         <li>
-                                            {this.props.books.map(book => (
-                                                <Book
-                                                    key={book.id}
-                                                    book={book}
-                                                />
-                                            ))}
+                                            {books
+                                                .filter(
+                                                    book =>
+                                                        book.shelf === shelf.key
+                                                )
+                                                .map(book => (
+                                                    <Book
+                                                        key={book.id}
+                                                        changeShelf={
+                                                            onChangeShelf
+                                                        }
+                                                        book={book}
+                                                    />
+                                                ))}
                                         </li>
                                     </ol>
                                 </div>

@@ -16,6 +16,14 @@ export default class BooksApp extends React.Component {
         books: []
     };
 
+    changeShelf = (book, shelfName) => {
+        book.shelf = shelfName;
+        BooksAPI.update(book, shelfName).then(
+            this.setState(currentState => ({
+                books: currentState.books
+            }))
+        );
+    };
     componentDidMount() {
         BooksAPI.getAll().then(books => {
             this.setState({books});
@@ -31,7 +39,12 @@ export default class BooksApp extends React.Component {
                         <Route
                             exact
                             path="/"
-                            render={() => <Shelf books={this.state.books} />}
+                            render={() => (
+                                <Shelf
+                                    onChangeShelf={this.changeShelf}
+                                    books={this.state.books}
+                                />
+                            )}
                         />
                         <Route
                             exact

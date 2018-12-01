@@ -1,8 +1,14 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 export default class ListBooks extends Component {
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        changeShelf: PropTypes.func.isRequired
+    };
     render() {
-        const {book} = this.props;
+        const {book, changeShelf} = this.props;
+
         return (
             <div>
                 <div id={book.id} className="book">
@@ -18,7 +24,11 @@ export default class ListBooks extends Component {
                             }}
                         />
                         <div className="book-shelf-changer">
-                            <select>
+                            <select
+                                onChange={e =>
+                                    changeShelf(book, e.target.value)
+                                }
+                            >
                                 <option value="move" disabled>
                                     Move to...
                                 </option>
