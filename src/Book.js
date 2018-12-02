@@ -25,6 +25,7 @@ export default class ListBooks extends Component {
                         />
                         <div className="book-shelf-changer">
                             <select
+                                defaultValue={book.shelf}
                                 onChange={e =>
                                     changeShelf(book, e.target.value)
                                 }

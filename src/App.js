@@ -18,6 +18,12 @@ export default class BooksApp extends React.Component {
 
     changeShelf = (book, shelfName) => {
         book.shelf = shelfName;
+        console.log(book.id);
+        // var shelfOptions = document.getElementById("book.id");
+        // shelfOptions.children[0].children[1].firstElementChild.children
+        //     .find(option => option.value === shelfName)
+        //     .attr("defaultSelected", "selected");
+
         BooksAPI.update(book, shelfName).then(
             this.setState(currentState => ({
                 books: currentState.books
