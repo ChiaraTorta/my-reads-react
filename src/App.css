@@ -132,6 +132,11 @@ button:active {
   padding: 80px 10px 20px;
 }
 
+.search-books-results li{
+  display: flex;
+  flex-direction: row;
+}
+
 /* books grid */
 
 .books-grid {

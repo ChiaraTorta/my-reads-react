@@ -4,10 +4,22 @@ import PropTypes from "prop-types";
 export default class ListBooks extends Component {
     static propTypes = {
         book: PropTypes.object.isRequired,
+        books: PropTypes.array.isRequired,
         changeShelf: PropTypes.func.isRequired
     };
     render() {
-        const {book, changeShelf} = this.props;
+        const {book, books, changeShelf} = this.props;
+
+        // set current shelf to none as default
+        let currentShelf = "none";
+
+        // if book is in current list, set current shelf to book.shelf
+        for (let item of books) {
+            if (item.id === book.id) {
+                currentShelf = item.shelf;
+                break;
+            }
+        }
 
         return (
             <div>
@@ -19,13 +31,15 @@ export default class ListBooks extends Component {
                                 width: 128,
                                 height: 192,
                                 backgroundImage: `url(${
-                                    book.imageLinks.smallThumbnail
+                                    book.imageLinks
+                                        ? book.imageLinks.thumbnail
+                                        : ""
                                 })`
                             }}
                         />
                         <div className="book-shelf-changer">
                             <select
-                                defaultValue={book.shelf}
+                                defaultValue={currentShelf}
                                 onChange={e =>
                                     changeShelf(book, e.target.value)
                                 }
@@ -43,7 +57,9 @@ export default class ListBooks extends Component {
                         </div>
                     </div>
                     <div className="book-title">{book.title}</div>
-                    <div className="book-authors">{book.authors}</div>
+                    <div className="book-authors">
+                        {book.authors ? book.authors : ""}
+                    </div>
                 </div>
             </div>
         );

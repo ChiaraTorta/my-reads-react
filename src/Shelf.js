@@ -53,6 +53,7 @@ export default class Shelf extends Component {
                                                             onChangeShelf
                                                         }
                                                         book={book}
+                                                        books={books}
                                                     />
                                                 ))}
                                         </li>
