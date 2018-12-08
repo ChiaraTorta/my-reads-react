@@ -2,7 +2,7 @@
 
 ## Overview
 
-This app was built for the Udacity Front-End Web Developer Nanodegree Program. The purpose of the project is to demonstrate understanding of the basic structure and operation of a React-based app.
+This app was built for the [Udacity Front-End Web Developer Nanodegree Program](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001). The purpose of the project is to demonstrate understanding of the basic structure and operation of a React-based app.
 
 The project is built on a [starter repo](https://github.com/udacity/reactnd-project-myreads-starter) containing all the CSS and HTML markup that may be used but omits the React code that is required to complete the project. The provided code will demonstrate a static HTML page of the finished application, but with no interactive functionality.
 
@@ -30,7 +30,7 @@ The project uses Node.js and the Create-React-App starter.
 
 Once Node is installed, navigate to the directory where you want to store the app
 
-* git clone https://github.com/ChiaraTorta/my-reads-react.git  
+* `git clone https://github.com/ChiaraTorta/my-reads-react.git`  
 
 * `npm install`
 
@@ -40,4 +40,5 @@ Once all of the dependencies have been installed you can launch the app with
 
 A new browser window should automatically open displaying the app. If it doesn't, navigate to http://localhost:3000/ in your browser.
 
-This project is licensed under the terms of the MIT license.
+
+**This project is licensed under the terms of the MIT license.**
